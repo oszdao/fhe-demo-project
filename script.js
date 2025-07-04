@@ -1,36 +1,16 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  padding: 40px;
-}
+function checkEligibility() {
+  const income = document.getElementById('incomeInput').value;
+  const resultDiv = document.getElementById('result');
 
-.container {
-  background: white;
-  padding: 30px;
-  max-width: 500px;
-  margin: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+  if (!income) {
+    resultDiv.innerText = 'Please enter your income.';
+    return;
+  }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 15px 0;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 6px;
-}
-
-#result {
-  margin-top: 20px;
-  font-weight: bold;
+  const threshold = 30000;
+  if (parseInt(income) < threshold) {
+    resultDiv.innerText = '✅ You are eligible for the grant.';
+  } else {
+    resultDiv.innerText = '❌ You are not eligible for the grant.';
+  }
 }
